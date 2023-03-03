@@ -5,5 +5,7 @@ nav:
   - Help: help.md
   - Files: files.md
 theme:
-    name: mkdocs
-    nav_style: dark
+  name: material
+markdown_extensions:
+  - attr_list
+
