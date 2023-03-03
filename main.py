@@ -2,13 +2,10 @@ from appJar import gui
 import socket
 import json
 
-print("Opening Clients File")
 with open('clients.json') as f:
     data = json.load(f)
-print("Finding Ips")
-ip_addresses = [pc['name:'] for pc in data['pcs']]
-print("LOADING SERVER")
-print("LOADING CLIENTS")
+
+ip_addresses = [pc['ip_address'] for pc in data['pcs']]
 
 
 def send_content(btn):
@@ -22,26 +19,27 @@ def send_content(btn):
 def newclient(btn):
     name = app.getEntry("PC NAME")
     ipad = app.getEntry("IP Address")
-    new_pc = {
-        "name:": name,
-        "ip_address": ipad
-    }
+    new_pc = {"name:": name, "ip_address": ipad}
     data["pcs"].append(new_pc)
     with open('clients.json', 'w') as file:
         json.dump(data, file, indent=2)
+    with open('info/info.md', 'a') as f:
+        f.write(f"### {name}")
+        f.write(f"\n")
+        f.write(f"- PC IP:'{ipad}'")
+        f.write(f"\n")
     app.setEntry("PC NAME", "")
     app.setEntry("IP Address", "")
 
 
-app = gui("RRSM", useTtk=True)
-# New Message Client
-app.startLabelFrame("Messages")
+app = gui("Remote Manager", useTtk=True)
+app.startLabelFrame("Send Message", 1, 1)
 app.addLabelEntry("Message")
 app.addButton("Send", send_content)
 app.addOptionBox("IP Address", ip_addresses)
 app.stopLabelFrame()
-# New Client Tab
-app.startLabelFrame("Add A New Client")
+
+app.startLabelFrame("Add A New Client", 1, 2)
 app.addLabelEntry("PC NAME")
 app.addLabelEntry("IP Address")
 app.addButton("Enter", newclient)
