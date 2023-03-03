@@ -27,10 +27,13 @@ def newcommand(btn):
 app = gui("Command Hub", useTtk=True)
 app.startTabbedFrame("Tabs")
 app.startTab("Home")
-app.addLabel("l1","Welcome",1,1)
+
+app.startLabelFrame("Server",1,1)
+app.addLabel("l1","Welcome")
+app.addLabel("l2","please select a command")
+app.stopTabbedFrame()
+
 app.addImage("i1",'icons/radio.png',1,2)
-
-
 app.stopTab()
 
 app.startTab("New Command")

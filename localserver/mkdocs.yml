@@ -1,0 +1,9 @@
+site_name: Info
+site_url: http://example.com/
+nav:
+  - Home: index.md
+  - Help: help.md
+  - Files: files.md
+theme:
+    name: mkdocs
+    nav_style: dark
