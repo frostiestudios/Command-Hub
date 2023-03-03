@@ -57,7 +57,7 @@ def serversettings():
     print("Settings")
 
 
-app = gui("RSL 3", useTk=True)
+app = gui("RSL 3", useTtk=True)
 app.startLabelFrame("Server Controls")
 app.addButtons([PLY, PAU], server)
 app.addButtons(["Build"], mk)
