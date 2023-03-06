@@ -1,14 +1,22 @@
-import ui
+from appJar import gui
+import webbrowser
+import json
+import subprocess
 
-def button_tapped(sender):
-    sender.title = 'Hello'
 
-view = ui.View()                                      # [1]
-view.name = 'Demo'                                    # [2]
-view.background_color = 'white'                       # [3]
-button = ui.Button(title='Tap me!')                   # [4]
-button.center = (view.width * 0.5, view.height * 0.5) # [5]
-button.flex = 'LRTB'                                  # [6]
-button.action = button_tapped                         # [7]
-view.add_subview(button)                              # [8]
-view.present('sheet')
+def actions(btn):
+    if btn == "Go":
+        print("Server Has Been Created")
+        sn = app.getEntry("Server Name")
+        sl = app.getEntry("Server Location")
+        print(f"Server Name: {sn}")
+        print(f"Server Location: {sl}")
+        subprocess.call(['mkdocs', 'new'], cwd=sl)
+
+
+app = gui("RSL Setup", useTtk=True)
+app.addLabel("Ttl", "Setup")
+app.addDirectoryEntry("Server Location")
+app.addLabelEntry("Server Name")
+app.addButtons(["Go"], actions)
+app.go()
