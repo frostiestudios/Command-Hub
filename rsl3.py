@@ -57,6 +57,17 @@ def serversettings():
     print("Settings")
 
 
+def add(btn):
+    print("Adding File")
+    filen = app.getEntry("F1")
+    with open('localserver/docs/files.md', 'a') as f:
+        f.write(f"###{filen}")
+        f.write(f"\n")
+        f.write(f"[{filen} Download]({filen})")
+        f.write(f"\n")
+        f.write(f"\n")
+
+
 app = gui("RSL 3", useTtk=True)
 app.startLabelFrame("Server Controls")
 app.addButtons([PLY, PAU], server)
@@ -76,4 +87,10 @@ app.startLabelFrame("Settings")
 app.addLabelOptionBox("Style", ["Dark", "Light"])
 app.addLabelEntry("Name")
 app.stopLabelFrame()
+
+app.startLabelFrame("Add File")
+app.addLabelEntry("F1")
+app.addButton("Enter", add)
+app.stopLabelFrame()
+
 app.go()
