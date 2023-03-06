@@ -1,10 +1,10 @@
-site_name: Info
+site_name: RSL Server
 site_url: http://example.com/
 nav:
   - Home: index.md
   - Help: help.md
   - Files: files.md
-theme: 'windmill-dark'
+theme: 'windmill'
 markdown_extensions:
   - attr_list
   - tables
