@@ -5,6 +5,7 @@ import os
 import subprocess
 import threading
 import webbrowser
+import json
 
 PLY = "\u25B6"
 PAU = "\u23F8"
@@ -12,14 +13,27 @@ PRE = "\u23F4"
 NEX = "\u23F3"
 
 
+def newfile(btn):
+    with open("config.json",'r') as f:
+        data = json.load(f)
+        folder_path=data['server_path']
+    file_path = app.getEntry("File")
+    file_name = app.getEntry("File Name")
+    os.rename(file_path, f"{folder_path}/{os.path.basename(file_path)}")
+    print("file moved")
+    with open('localserver/docs/files.md','a') as f:
+        f.write(f"|{file_name}|-|-|[View File](files/{os.path.basename(file_path)})|")
+        f.write(f"\n")
+    app.infoBox("Yay",f"File {file_name} has been moved")
+
 def mk(btn):
     if btn == "Start":
         print("Server Starting Up")
-        subprocess.call(['mkdocs', 'serve'], cwd='localserver')
+        subprocess.call(['mkdocs', 'serve'], cwd=serlocal)
         print("Server Now Live")
     if btn == "Build":
         print("Building")
-        subprocess.call(['mkdocs', 'build'], cwd='localserver')
+        subprocess.call(['mkdocs', 'build'], cwd=serlocal)
 
 
 def openmk(btn):
@@ -39,6 +53,7 @@ def server(btn):
         app.setLabel("SL", f"Server: http://{host_name}:{port_number}")
         app.setLabel("SS", "Online")
         print("Server started at http://{}:{}/localserver/site/".format(*httpd.socket.getsockname()))
+        app.infoBox("Server Online","Server Online")
     if btn == PAU:
         host_name = socket.gethostbyname(socket.gethostname())
         port_number = 5151
@@ -75,5 +90,11 @@ app.stopLabelFrame()
 app.startLabelFrame("Settings")
 app.addLabelOptionBox("Style", ["Dark", "Light"])
 app.addLabelEntry("Name")
+app.stopLabelFrame()
+
+app.startLabelFrame("Server Add File")
+app.addLabelFileEntry("File")
+app.addLabelEntry("File Name")
+app.addButton("Send",newfile)
 app.stopLabelFrame()
 app.go()

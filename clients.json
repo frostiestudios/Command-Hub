@@ -1,20 +1,10 @@
-{
-  "pcs": [
-    {
-      "name:": "MacBook",
-      "ip_address": "192.168.0.171"
-    },
-    {
-      "name:": "Matt's PC",
-      "ip_address": "192.168.0.71"
-    },
-    {
-      "name:": "Matt",
-      "ip_address": "192.168.0.71"
-    },
-    {
-      "name:": "Matt",
-      "ip_address": "192.168.0.171"
-    }
-  ]
-}
+[
+  {
+      "PCName": "PC1",
+      "IP": "192.168.1.100"
+  },
+  {
+    "PCName": "Spectator",
+    "IP": "192.168.1.42"
+  }
+]
