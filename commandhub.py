@@ -34,8 +34,7 @@ app.startLabelFrame("Add A New Client")
 
 app.addButtons(["Enter"], send_content)
 app.addOptionBox("PCs",ips)
-app.addOptionBox("Commands",["SLE"])
+app.addOptionBox("Commands",["Sleep"])
 app.stopLabelFrame()
-
 
 app.go()
