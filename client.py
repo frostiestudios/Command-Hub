@@ -18,7 +18,10 @@ while True:
     if data == "SLE":
         print("Sleep Command")
         os.system("shutdown /r /t 1")
-
+    #ASSETTO COMMANDS
+    if data == "B":
+        pyautogui.hotkey("ctrlleft", "v")
+        print("Driver Sent to Pits")
 
 
     conn.close()
