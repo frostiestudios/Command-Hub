@@ -16,5 +16,7 @@ while True:
         if not data:
             break
         print('Received', repr(data))
+        if data="SLE":
+            print("Preparing to Sleep")
     conn.close()
     print('Connection closed.')

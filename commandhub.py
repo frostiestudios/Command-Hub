@@ -22,6 +22,7 @@ def send_content(btn):
     ip_address = app.getOptionBox("PCs")
     message = app.getOptionBox("Commands")
     threading.Thread(target=lambda: send(ip_address, message)).start()
+    print(message)
 def send(ip_address, message):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((ip_address, 12345))
