@@ -20,8 +20,16 @@ while True:
         os.system("shutdown /r /t 1")
     #ASSETTO COMMANDS
     if data == "B":
-        pyautogui.hotkey('ctrl', 'b')
+        pyautogui.keyDown("ctrlleft")
+        pyautogui.keyDown("b")
+        pyautogui.keyUp("ctrlleft")
+        pyautogui.keyUp("b")
         print("Driver Sent to Pits")
+    if data == "G":
+        pyautogui.keyDown("ctrlleft")
+        pyautogui.keyDown("g")
+        pyautogui.keyUp("ctrlleft")
+        pyautogui.keyUp("g")
 
 
     conn.close()
