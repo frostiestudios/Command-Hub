@@ -31,11 +31,10 @@ def send(ip_address, message):
 
 
 app = gui("Command Hub", useTtk=True)
-app.startLabelFrame("Add A New Client")
-
+app.startLabelFrame("Command Hub")
 app.addButtons(["Enter"], send_content)
 app.addOptionBox("PCs",ips)
-app.addOptionBox("Commands",["SLE","B"])
-app.stopLabelFrame()
+app.addOptionBox("Commands",["S","B","G"])
 
+app.stopLabelFrame()
 app.go()

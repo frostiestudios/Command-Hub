@@ -15,7 +15,7 @@ while True:
     data = conn.recv(1024).decode()
     print(data)
     print(addr)
-    if data == "SLE":
+    if data == "S":
         print("Sleep Command")
         os.system("shutdown /r /t 1")
     #ASSETTO COMMANDS
