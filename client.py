@@ -1,6 +1,10 @@
 import socket
 import pyautogui
 import os
+import subprocess
+import time
+import webbrowser
+import psutil
 HOST = ''  # Symbolic name meaning all available interfaces
 PORT = 12345  # Arbitrary non-privileged port
 
@@ -30,6 +34,15 @@ while True:
         pyautogui.keyDown("g")
         pyautogui.keyUp("ctrlleft")
         pyautogui.keyUp("g")
+    if data == "CM":
+        pyautogui.press("win")
+    if data == "C":
+        file_path = r"C:\LoungeControl\LoungeControl-ACLauncher\LC AC Launcher.exe"
+        subprocess.call(['taskkill','/F','/IM','LC AC Launcher.exe'])
+        time.sleep(5)
+        subprocess.Popen(file_path)
+
+
 
 
     conn.close()
