@@ -36,7 +36,7 @@ root = Tk()
 root.title("Command Hub Server")
 
 ip_combobox = ttk.Combobox(root, values=[row[1] for row in data])
-command_combobox = ttk.Combobox(root, values=['s'])
+command_combobox = ttk.Combobox(root, values=['C','S'])
 ttk.Label(root,text="Select Dest").grid(row=3,column=0)
 ttk.Label(root,text="Select Command").grid(row=4,column=0)
 ttk.Label(root,text="Power System Commands").grid(row=1,column=1)
