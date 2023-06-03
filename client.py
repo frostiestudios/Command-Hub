@@ -21,7 +21,7 @@ while True:
     print(addr)
     if data == "S":
         print("Sleep Command")
-        os.system("shutdown /r /t 1")
+        os.system("shutdown /s /t 1")
     #ASSETTO COMMANDS
     if data == "B":
         pyautogui.keyDown("ctrlleft")
