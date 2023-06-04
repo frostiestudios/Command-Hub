@@ -32,6 +32,10 @@ def send(ip_address, message):
 def dbo():
     new_name = newpc_name_combobox.get()
     new_ip = newpc_ip_combobox.get()
+    conn = sqlite3.connect("rr.db")
+    c = conn.cursor()
+    c.execute("INSERT INTO computers (name,ip) VALUES (?,?)",(new_name,new_ip))
+    conn.commit()
     print(new_name)
     print(new_ip)
 
