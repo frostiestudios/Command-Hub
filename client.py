@@ -41,6 +41,7 @@ while True:
         subprocess.call(['taskkill','/F','/IM','LC AC Launcher.exe'])
         time.sleep(5)
         subprocess.Popen(file_path)
+    
 
 
 
