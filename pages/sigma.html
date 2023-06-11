@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>Sigma Launcher</title>
+<h1>Sigma Launcher</h1>
+<table>
+    <th>PC</th>
+    <th>IP</th>
+    <th>Name:</th>
+    %for row in rows:
+    <tr>
+        <td>{{row[0]}}</td>
+        <td>{{row[1]}}</td>
+        <td>{{row[2]}}</td>
+        <td><a href="http://{{row[1]}}">Conect to Sigma</a></td>
+    </tr>
+    %end
+</table>

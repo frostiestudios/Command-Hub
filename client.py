@@ -4,14 +4,24 @@ import os
 import subprocess
 import time
 import webbrowser
-import psutil
+from appJar import gui
 HOST = ''  # Symbolic name meaning all available interfaces
 PORT = 12345  # Arbitrary non-privileged port
+
+hostname=socket.gethostname()   
+IPAddr=socket.gethostbyname(hostname)
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
 s.listen(1)
-print('Waiting for a connection...')
+print('Waiting for a connectpipion...')
+
+
+#Create Simple GUI
+app = gui("Client",useTtk=True,geom="200x100")
+app.addLabel("HOST",f"HOST:{hostname}")
+app.addLabel("IP",f"IP:{IPAddr}")
+app.go()
 
 while True:
     conn, addr = s.accept()

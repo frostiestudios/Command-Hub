@@ -33,3 +33,7 @@ pip install pyautogui
 |Python3.11|R||
 
 
+## Rogue Racing Guide
+### Setup
+Hi welcome to rogue racing. In this guide you will learn how to 
+

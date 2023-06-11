@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>REM COM</title>
+<h1>Rem Com</h1>
+<table>
+    <th>PC</th>
+    <th>IP</th>
+    <th>Name</th>
+    <th>Actions</th>
+    %for row in rows:
+    <tr>
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+        <td><a href="http://{{ row[1] }}/restartlc">{{ row[1] }}</a></td>
+    </tr>
+    %end
+</table>
