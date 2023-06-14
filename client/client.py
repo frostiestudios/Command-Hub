@@ -8,7 +8,9 @@ hostname=socket.gethostname()
 IPAddr=socket.gethostbyname(hostname)
 @route("/")
 def index():
-    return template('client/pages/index')
+    hostname=socket.gethostname()   
+    IPAddr=socket.gethostbyname(hostname)
+    return template('client/pages/index', IPAddr=IPAddr,host=hostname)
 
 @route('/restartlc')
 def restartlc():
@@ -17,4 +19,8 @@ def restartlc():
     time.sleep(5)
     subprocess.Popen(file_path)
     return redirect('/')
+@route('/logout')
+def logout():
+    print ("Logging Out")
+    os.system("shutdown -l")
 run(host=IPAddr,port=5153,debug=True,reloader=True)

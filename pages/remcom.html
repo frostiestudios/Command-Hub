@@ -11,7 +11,9 @@
         <td>{{ row[0] }}</td>
         <td>{{ row[1] }}</td>
         <td>{{ row[2] }}</td>
-        <td><a href="http://{{ row[1] }}/restartlc">{{ row[1] }}</a></td>
+        <td><button onclick="window.location.href='http://{{row[1]}}'">Simga</button></td>
+        <td><button onclick="window.location.href='http://{{ row[1] }}:5153/restartlc'">restartlc</button></td>
+        <td><button onclick="window.location.href='http://{{ row[1] }}:5153/logout'">log-out</button></td>
     </tr>
     %end
 </table>
