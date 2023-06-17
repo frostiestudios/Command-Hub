@@ -19,8 +19,16 @@ def restartlc():
     time.sleep(5)
     subprocess.Popen(file_path)
     return redirect('/')
-@route('/logout')
+
+@route('/shutdown')
+def shutdown():
+    return os.system("shutdown /s /t 1")
+
+@route('/restart')
+def restart():
+    return os.system("shutdown /r /t 1")
+
+@route('/logout') 
 def logout():
-    print ("Logging Out")
-    os.system("shutdown -l")
+    return os.system("shutdown -l")
 run(host=IPAddr,port=5153,debug=True,reloader=True)
